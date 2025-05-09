@@ -1,41 +1,79 @@
 package model;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.time.LocalDate;
+import java.util.List;
 
-public class Doctor extends Person {
-    private String doctorID;
-    private String specialization;
+/**
+ * Represents a doctor in the hospital system with their details and availability.
+ */
+public class Doctor implements Schedulable {
+    private static int doctorCounter = 0; // Static counter for generating unique IDs
+    private final String doctorID;
+    private String name;
+    private int age;
+    private List<String> specializations;
     private List<LocalDate> availableDates;
 
-    public Doctor(String name, int age, String doctorID, String specialization, List<LocalDate> availableDates) {
-        super(name, age);
-        this.doctorID = doctorID;
-        this.specialization = specialization;
-        this.availableDates = new ArrayList<>(availableDates);
+    public Doctor(String name, int age, List<String> specializations, List<LocalDate> availableDates) {
+        this.doctorID = generateDoctorID();
+        this.name = name;
+        this.age = age;
+        this.specializations = specializations != null ? List.copyOf(specializations) : List.of();
+        this.availableDates = availableDates != null ? List.copyOf(availableDates) : List.of();
     }
 
-    // Getters and setters
-    public String getDoctorID() { return doctorID; }
-    public String getSpecialization() { return specialization; }
-    public List<LocalDate> getAvailableDates() { return availableDates; }
+    private String generateDoctorID() {
+        return "DOC-" + String.format("%03d", ++doctorCounter);
+    }
 
-    public void setDoctorID(String doctorID) { this.doctorID = doctorID; }
-    public void setSpecialization(String specialization) { this.specialization = specialization; }
+    public String getDoctorID() {
+        return doctorID;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public List<String> getSpecializations() {
+        return specializations;
+    }
+
+    public List<LocalDate> getAvailableDates() {
+        return availableDates;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setSpecializations(List<String> specializations) {
+        this.specializations = specializations != null ? List.copyOf(specializations) : List.of();
+    }
+
     public void setAvailableDates(List<LocalDate> availableDates) {
-        this.availableDates = new ArrayList<>(availableDates);
-    }
-
-    public boolean isAvailable(LocalDate date) {
-        return availableDates.contains(date);
+        this.availableDates = availableDates != null ? List.copyOf(availableDates) : List.of();
     }
 
     @Override
-    public void displayInfo() {
-        System.out.println("Doctor name: " + getName() + " Age: " + getAge());
-        System.out.println("Doctor ID: " + doctorID);
-        System.out.println("Specialization: " + specialization);
-        System.out.println("Available Dates: " + availableDates);
+    public boolean isAvailableOn(LocalDate date) {
+        return availableDates.contains(date);
+    }
+
+    public boolean hasSpecialization(String specialization) {
+        return specializations.stream().anyMatch(s -> s.equalsIgnoreCase(specialization));
+    }
+
+    @Override
+    public String toString() {
+        return "Doctor{" + "doctorID='" + doctorID + '\'' + ", name='" + name + '\'' + ", age=" + age +
+                ", specializations=" + specializations + ", availableDates=" + availableDates + '}';
     }
 }
