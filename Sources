@@ -1,3 +1,23 @@
 Sources we used in our code:
 
 Logging Logger - https://www.digitalocean.com/community/tutorials/logger-in-java-logging-example
+
+Java Swing - https://docs.oracle.com/javase/tutorial/uiswing/
+
+Java AWT for Layout Management - https://docs.oracle.com/javase/tutorial/uiswing/layout/index.html
+
+Java Regular Expressions - https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/regex/Pattern.html
+
+Java Time API - https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/package-summary.html
+
+Java Security for Password Hashing - https://www.baeldung.com/sha-256-hashing-java
+
+Java Collections Framework - https://docs.oracle.com/javase/tutorial/collections/
+
+Swing Table Model and Row Sorter - https://docs.oracle.com/javase/tutorial/uiswing/components/table.html
+
+DocumentListener for Real-Time Input Validation - https://docs.oracle.com/javase/tutorial/uiswing/events/documentlistener.html
+
+UUID for Unique Identifiers - https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/UUID.html
+
+Swing Borders for UI Styling - https://docs.oracle.com/javase/tutorial/uiswing/components/border.html
