@@ -25,7 +25,7 @@ Operations: Click buttons to add, update, delete, or schedule, and use the searc
 
 Rules and Constraints
 
-Bandaging Rule: Patients with diseases like "Leg injury" are restricted to nurses.
+Bandaging Rule: Patients with diseases containing "wound" or "bandage" are restricted to nurses.
 Pediatric Rule: Patients under 18 are restricted to doctors with the "Pediatrics" specialization.
 ID Generation: Doctors use a sequential "DOC-XXX" format, patients use a name-based "XX-XXX" format, and nurses use a manual "NUR-XXX" format.
 
